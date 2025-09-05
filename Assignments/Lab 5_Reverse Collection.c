@@ -5,28 +5,13 @@
 
 
 void display(int arr[], int n);
-
-int occurance(int arr[], int n, int item);
-int getPrime(int arr[], int n);
-int getNumPosition(int arr[], int n);
-
-bool checkElement(int arr[], int n);
-bool numPalindrome(int arr[], int n);
-bool fibonacciSeq(int arr[], int n);
-bool nextNumSmaller(int arr[], int n);
-
-char **getClassify(int arr[], int n);
 int *getReversed(int arr[], int n);
-int *getReplaced(int arr[], int n);
-int *getNumFactors(int arr[], int n, int *ret);
-int *getComposite(int arr[], int n, int *ret);
 
 
 int main(){
     int arr[10] = {45, 7, 2, 35, 43, 3, 12, 34, 12, 1};
     int n = 10;
     
-    int item, answer;
    
     printf("Display:");
     display(arr, n);
@@ -62,5 +47,6 @@ int *getReversed(int arr[], int n){
     }
     return temp;
 }
+
 
 
