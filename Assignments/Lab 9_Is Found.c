@@ -10,11 +10,6 @@ bool checkElement(int arr[], int n);
 int main(){
     int arr[10] = {45, 7, 2, 35, 43, 3, 12, 34, 12, 1};
     int n = 10;
-    
-    
-    int item, choice, answer;
-    int ret_n;
-    
 
     display(arr, n);
     if(checkElement(arr, n)){
@@ -59,4 +54,5 @@ bool checkElement(int arr[], int n){
     
     return false;
 }
+
 
