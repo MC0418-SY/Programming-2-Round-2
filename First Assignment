@@ -1,0 +1,469 @@
+**First Assignment of Sir Gran**
+Coded by: Nicole Louis Heredia
+Edited by: Maria Cheyenne Gilbero
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+
+void display(int arr[], int n);
+
+int occurance(int arr[], int n, int item);
+int getPrime(int arr[], int n);
+int getNumPosition(int arr[], int n);
+
+bool checkElement(int arr[], int n);
+bool numPalindrome(int arr[], int n);
+bool fibonacciSeq(int arr[], int n);
+bool nextNumSmaller(int arr[], int n);
+
+char **getClassify(int arr[], int n);
+int *getReversed(int arr[], int n);
+int *getReplaced(int arr[], int n);
+int *getNumFactors(int arr[], int n, int *ret);
+int *getComposite(int arr[], int n, int *ret);
+
+
+int main(){
+    int arr[10] = {45, 7, 2, 35, 43, 3, 12, 34, 12, 1};
+    int n = 10;
+    
+    
+    int item, choice, answer;
+    int ret_n;
+    
+    do{
+
+    printf("1 - Occurances\n");
+    printf("2 - Prime Numbers\n");
+    printf("3 - Composite\n");
+    printf("4 - Classification\n");
+    printf("5 - Reversed\n");
+    printf("6 - Replace Number\n");
+    printf("7 - Factors\n");
+    printf("8 - Postion\n");
+    printf("9 - Check element \n");
+    printf("10 - Palindrome\n");
+    printf("11 - Fibonacci Sequence\n");
+    printf("12 - Next Number Check\n");
+    
+    
+    
+    printf("Enter your choice (press 0 to exit): ");
+    scanf("%d", &choice);
+    printf("\n");
+        
+        switch(choice){
+            case 1:
+                display(arr, n);
+                answer = occurance(arr, n, item);
+                printf("Occurances: %d\n", answer);
+                break;
+            
+            case 2:
+                
+                display(arr, n);
+
+                answer = getPrime(arr, n);
+                printf("No. of Prime Numbers: %d\n", answer);
+                break;
+            
+            case 3:
+                display(arr, n);
+                int *compositeList = getComposite(arr, n, &ret_n);
+                
+                display(compositeList, ret_n);
+                free(compositeList);
+                printf("\n");
+                break;
+            
+            case 4:
+                
+                display(arr, n);
+                
+                char **list = getClassify(arr, n);
+                
+                for(int i = 0; i < n; i++){
+                    printf("%d = %s\n", arr[i], list[i]);
+                    free(list[i]);
+                }
+                
+                free(list);
+                
+                printf("\n");
+            break;
+            
+            
+            case 5:
+                display(arr, n);
+                int *reverseList = getReversed(arr, n);
+                display(reverseList, n);
+                printf("\n");
+                break;
+            
+            case 6:
+          
+                display(arr, n);
+                int *replaceList = getReplaced(arr, n);
+                
+                display(replaceList, n);
+                
+                printf("\n");
+                break;
+            
+            case 7:
+
+                display(arr, n);
+                int *FList = getNumFactors(arr, n, &ret_n);
+                
+                display(FList, ret_n);
+                printf("\n");
+                break;
+            
+            case 8:
+                display(arr, n);
+                int answer = getNumPosition(arr, n);
+                printf("Position at: %d\n\n", answer);
+                break;
+                
+            case 9:
+                display(arr, n);
+                    if(checkElement(arr, n)){
+                        printf("TRUE, %d is in the collection.\n\n");
+                    }
+                    else{
+                        printf("FALSE, %d is not in the collection.\n\n");
+                    }
+                break;
+            case 10:
+                display(arr, n);
+                    if(numPalindrome(arr, n)){
+                        printf("YES, it is a palindrome\n\n");
+                    }
+                    else{
+                        printf("NO, it is not a Palindrome\n\n");
+                    }
+                    
+                break;
+            
+            case 11:
+          
+                display(arr,n);
+                
+                    if(fibonacciSeq(arr, n)){
+                        printf("YES, it is part of the Fibonacci Sequence\n\n");
+                    }
+                    else{
+                        printf("NO, it is not a part of Fibonacci Sequence\n\n");
+                    }
+                    
+                break;
+            case 12:
+                display(arr, n);
+                if(nextNumSmaller(arr, n)){
+                        printf("YES, Smaller\n\n");
+                    } else {
+                        printf("NOT Smaller\n\n");
+                    }
+                    
+                break;
+        }
+    }while (choice != 0);
+
+    return 0;
+}
+
+
+
+void display(int arr[], int n){
+    //This function is for displaying the array
+    printf("{");
+    for(int i = 0; i < n; i++){
+        printf("%d", arr[i]);
+        if(i< n-1){
+            printf(", ");
+        }
+    }
+    printf("}\n");
+    
+}
+
+int occurance(int arr[], int n, int item){
+    //This function is to count the number of occurences for a number
+    printf("Enter a Number: ");
+    scanf("%d", &item);
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        if(item == arr[i]){
+            count++;
+        }
+    }
+    return count;
+}
+
+int getPrime(int arr[], int n){
+    //This function is to count the number of prime numbers in the array
+    int count = 0;
+    int isPrime = 0;
+ 
+    for(int i = 0; i < n; i++){
+        int x = arr[i];
+        isPrime = 1;
+       if(x <= 1){
+           isPrime = 0;
+       }
+       for(int j = 2; j * j <= x; j++){
+               if(x % j == 0){
+                   isPrime = 0;
+               }
+           }
+        if(isPrime >= 1){
+            count++;
+        }
+    }
+    return count;
+}
+
+
+int *getComposite(int arr[], int n, int*ret_n){
+    //This function is to get and display the composite numbers in the array
+    *ret_n = 0;
+    int isPrime = 0;
+    
+    int *list = malloc(sizeof(int)*n);
+    
+        for(int i = 0; i < n; i++){
+            
+            int x = arr[i];
+            isPrime = 1;
+             for(int j = 2; j * j <= x; j++){
+                   if(x % j == 0){
+                       isPrime = 0;
+                   }
+               }
+            if(!isPrime)
+            list[(*ret_n)++] = arr[i];
+        }
+    return list;
+}
+
+
+
+char **getClassify(int arr[], int n){
+    //This function classifies the elements in the array in to "fizz", "buzz", and "fizzbuzz".
+    /*  
+        Fizz = if divisible by 2
+        Buzz = if divisible by 5
+        FizzBuzz = if divisible by 2 and 5
+    */
+ 
+    char **class = malloc(n * sizeof(char*));
+
+    for(int i = 0; i < n; i++){
+        class[i] = malloc(20 * sizeof(char));
+        if(arr[i] % 2 == 0){
+            strcpy(class[i], "Fizz");
+        }
+        else if(arr[i] % 5 == 0){
+            strcpy(class[i], "Buzz");
+        }
+        else if (arr[i] % 2 == 0 && arr[i] % 5 == 0){
+            strcpy(class[i], "FizzBuzz");
+        }
+        else{
+            strcpy(class[i], "None");
+        }
+    }
+    return class;
+}
+
+
+int *getReversed(int arr[], int n){
+    //This function reverses the array
+    int *temp = malloc(sizeof(int) * n);
+    for(int i = 0; i < n; i++){
+        temp[i] = arr[n - 1 - i];
+    }
+    return temp;
+}
+
+
+int *getReplaced(int arr[], int n){
+    //This function replaces a number in the array
+    int num;
+    int changed;
+    int count = 0;
+    
+    int* temp = malloc(sizeof(int) * n);
+    
+    printf("Enter Number to Change: ");
+    scanf("%d", &num);
+        
+    for(int i = 0; i < n; i++){
+            
+        if(num == arr[i]){
+                printf("Change Number to: ");
+                scanf("%d", &changed);
+                    
+                arr[i] = changed;
+                count++;
+            }
+            temp[i] = arr[i];
+        }
+        
+        if(count == 0){
+            printf("%d not found", num);
+        }
+        
+       return temp;
+}
+
+
+int *getNumFactors(int arr[], int n, int *ret_n){
+    //This function gets all the factors of a number
+    *ret_n = 0;
+    int *list = malloc(sizeof(int) * n);
+    
+    int x;
+    int count = 0;
+    
+    printf("Number: ");
+    scanf("%d", &x);
+    for(int i = 0; i < n; i++){
+        if(x == arr[i]){
+            count++;
+        }
+    }
+    
+    if(count == 0){
+         printf("Error! Number not found.", x);
+    }
+    else{
+        printf("Factors: ", x);
+        
+        for(int i = 1; i <= x; i++){
+                if(x % i == 0){
+                    list[(*ret_n)++] = i;
+                }
+            }
+    }
+    return list;
+}
+
+
+
+int getNumPosition(int arr[], int n){
+    //This function gets the position of the given value in the array. If not found, the return -1
+    int value;
+    int pos;
+    int count = 0;
+    
+    printf("Number: ");
+    scanf("%d", &value);
+    
+    for(int i = 0; i < n; i++){
+        if(value == arr[i]){
+            count++;
+        }
+    }
+    
+    if(count == 0){
+         return -1;
+    }
+    else{
+        for(int i = 0; i < n; i++){
+            if(arr[i] == value){
+                pos = i;
+            }
+        }
+    }
+    
+    return pos;
+}
+
+
+bool checkElement(int arr[], int n){
+    //This function is to check if the provided element is in the collection. 
+    int value;
+    int count = 0;
+    
+    printf("Number: ");
+    scanf("%d", &value);
+    
+    for(int i = 0; i < n; i++){
+        if(arr[i] == value){
+            count ++;
+        }
+    }
+    
+    if(count == 0){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool numPalindrome(int arr[], int n){
+    //This function is to check if the numbers in the collection are palindromic or not.
+    for (int i = 0; i < n / 2; i++) {
+        if (arr[i] != arr[n - 1 - i]) {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+}
+
+bool fibonacciSeq(int arr[], int n){
+    //This function is to check if the numbers in the collection are part of the Fibonacci Sequence.
+    for(int i = 2; i < n; i++){
+        if(arr[i] != arr[i + 1] + arr[i + 2]){
+            return false;
+        }
+    }
+    
+    return true;
+    
+}
+
+bool nextNumSmaller(int arr[], int n){
+    //This function is to check all the values after the specified first occurence of a given value are smaller than the given value.
+    int value;
+    int pos = -1;
+    int x= 0;
+    
+    printf("Number: ");
+    scanf("%d", &value);
+    
+    for (int i = 0; i < n; i++){
+        if (arr[i] == value) {
+            pos = i;
+            break;
+        }
+    }
+    
+    for (int j = pos + 1; j < n; j++){
+        if (value < arr[j]){
+            x++;
+        }
+    }
+    
+    if (x == 0){
+        return true;
+    } 
+
+    return false;
+    
+}
+
+
+
+
+
+
+
+
+
