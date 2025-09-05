@@ -12,14 +12,10 @@ int main(){
     int arr[10] = {45, 7, 2, 35, 43, 3, 12, 34, 12, 1};
     int n = 10;
     
-    
-    int item, answer;
-    
     display(arr, n);
     int *replaceList = replace(arr, n);
     display(replaceList, n);
     printf("\n");
-
 
     return 0;
 }
@@ -54,7 +50,6 @@ int *replace(int arr[], int n){
         if(num == arr[i]){
                 printf("Change Number to: ");
                 scanf("%d", &changed);
-                    
                 arr[i] = changed;
                 count++;
             }
@@ -65,5 +60,6 @@ int *replace(int arr[], int n){
         }
        return temp;
 }
+
 
 
