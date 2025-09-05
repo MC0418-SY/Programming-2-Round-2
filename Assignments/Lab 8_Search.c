@@ -37,6 +37,7 @@ void display(int arr[], int n){
 
 
 int getNumPosition(int arr[], int n) {
+    //This function is for getting the position of the entered number.
     int value;
 
     printf("Enter a Number: ");
@@ -50,5 +51,6 @@ int getNumPosition(int arr[], int n) {
 
     return -1; 
 }
+
 
 
