@@ -1,8 +1,5 @@
-**First Activity Given by Sir Gran**
+// First Activity Given by Sir Gran
 
-Description:
-
-Work in Progress
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
