@@ -1,9 +1,5 @@
-**Third Activity of Sir Gran**
-Coded By: Maria Cheyenne Gilbero, Nicole Louis Heredia
-
----
-
-
+// Third Activity of Sir Gran
+// Coded By: Maria Cheyenne Gilbero, Nicole Louis Heredia
 
 #include <stdio.h>
 #include <stdlib.h>
