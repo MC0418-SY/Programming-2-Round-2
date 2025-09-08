@@ -1,5 +1,5 @@
-Second Activity of Sir Gran 
-Coded by: Nicole Louis Heredia
+// Second Activity of Sir Gran 
+// Coded by: Nicole Louis Heredia
 
 #include <stdio.h>
 #include <string.h>
@@ -27,7 +27,7 @@ void sortArray(int arr[], int n);
 
 
 int main(){
-srand(time(NULL));
+srand(time(NULL)); // This line is for generating random elements for the array
 // int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 // int arr[11] = {1, 7, 2, 2, 3, 7, 3, 1, 7, 2, 3};
 int arr[11];
@@ -249,6 +249,7 @@ void sortArray(int arr[], int n){
 
 
 void populate (int arr[], int n){
+    //This function is for populating the array
     for(int i = 0; i < n; i++){
         arr[i] = rand() % 11 + 1;
     }
@@ -299,58 +300,9 @@ int highCount = 0;
         }
          
     }
-    
-
-     
-    
 
     return freqList;
   free(freqList);  
   
-  
-  
-  
-  
-  
-    // int rep;
-    // int highCount = 0;
-    // int count = 0;
-    // int freqNum;
-    // for(int i = 0; i < n; i++){
-    //     rep = arr[i];
-    //     count = 0;
-        
-    //     for(int j = 0; j < n; j++){
-    //         if(rep == arr[j]){
-    //             count++;
-    //         }
-            
-            
-    //     }
-
-    //     if(count > highCount){
-    //         freqNum = arr[i];
-    //     }
-
-    //     else if(count == highCount){
-    //         freqList[*ret_n++] = freqNum; 
-    //     }
-       
-    //   freqList[*ret_n++] = freqNum;
-        
-        
-    // }
-    
-    //  printf("{");
-    // for(int i = 0; i < *ret_n; i++){
-    //     printf("%d", freqList[i]);
-    //     if(i < *ret_n-1){
-    //         printf(", ");
-    //     }
-    // }
-    
-    // printf("}\n");
-
-    // free(freqList);
 
 }
