@@ -88,6 +88,9 @@ void display (int arr[], int n){
 
 void insertFront(int arr[], int *n, int item) {
     //This is for inserting elements at the front of the array
+    //Index:   0   1   2
+       //     [10, 20, 30]
+
     if (MAX > *n){
         for (int i = *n; i > 0; --i){
             arr[i] = arr[i - 1];
