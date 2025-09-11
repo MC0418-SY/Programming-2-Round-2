@@ -74,6 +74,7 @@ int main(){
 }
 
 void display (int arr[], int n){
+    //This is for displaying the array 
     printf("{");
         for (int i = 0; i < n; ++i){
             printf("%d", arr[i]);
@@ -86,6 +87,7 @@ void display (int arr[], int n){
 }
 
 void insertFront(int arr[], int *n, int item) {
+    //This is for inserting elements at the front of the array
     if (MAX > *n){
         for (int i = *n; i > 0; --i){
             arr[i] = arr[i - 1];
@@ -96,11 +98,13 @@ void insertFront(int arr[], int *n, int item) {
 }
 
 void insertRear(int arr[], int *n, int item){
+    //This is for inserting elements at the rear of an array
     arr[*n] = item;
     (*n)++;
 }
 
 void insertAt(int arr[], int *n, int item, int index){
+    //This is for inserting elements at a specific index of the array
     for (int i = *n; i > index; --i){
         arr[i] = arr[i - 1];
     }
@@ -110,6 +114,7 @@ void insertAt(int arr[], int *n, int item, int index){
 }
 
 void deleteFront(int arr[], int *n){
+    //This is for deleting the front of the array
     for (int i = *n; i < 0; i++){
             arr[i] = arr[i + 1];
     }
@@ -117,11 +122,13 @@ void deleteFront(int arr[], int *n){
 }
 
 void deleteRear(int arr[], int *n){
+    //This is for deleting the rear of an array
     (*n)--;
 }
 
 
 void deleteItem(int arr[], int *n, int item){
+    //This is for deleting the first instance of an item in an array
     for (int i = 0; i < *n; i++){
         if(arr[i] == item){
             for (int j = i; j < *n - 1; j++) {
@@ -150,6 +157,7 @@ void deleteAllItem(int arr[], int *n, int item){
 }
 
 bool isFound(int arr[], int n, int key){
+    //This is for confirming the existence of an element in an array
     for(int i = 0; i < n; ++i){
         if(arr[i] == key){
             return true;
@@ -160,6 +168,7 @@ bool isFound(int arr[], int n, int key){
 
 
 int searchItem (int arr[], int n, int key){
+    //This is to search for an item in an array
     int found;
     for(int i = 0; i < n; ++i){
         if (arr[i] == key){
