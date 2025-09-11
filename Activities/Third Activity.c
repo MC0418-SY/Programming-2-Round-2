@@ -23,7 +23,7 @@ bool isFound(int arr[], int n, int key);
 int searchItem (int arr[], int n, int key);
 
 void display (int arr[], int n);
-//*n is for modifying the count and the n is just for display since no changes need to be made in the function
+//*n is for modifying the count and n is just for display since no changes need to be made in the function
 
 int main(){
     int myArr[MAX];
