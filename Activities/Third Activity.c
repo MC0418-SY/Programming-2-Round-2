@@ -135,6 +135,7 @@ void deleteItem(int arr[], int *n, int item){
 
 
 void deleteAllItem(int arr[], int *n, int item){
+    //This function is for deleting all instances of an item
     for (int i = 0; i < *n; i++){
         if(arr[i] == item){
             for (int j = i; j < *n - 1; j++) {
