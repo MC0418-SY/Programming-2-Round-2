@@ -1,7 +1,7 @@
-**Referencing and Dereferencing (Pointers)**
+// **Referencing and Dereferencing (Pointers)**
 
-Description:
-There are supposed to be illustrations alongside this, but just DIY for now.
+// Description:
+// There are supposed to be illustrations alongside this, but just DIY for now.
 
 
 // C Program to implement Boolean data type
