@@ -21,14 +21,14 @@ int main() {
     n = p;
     
     
-    printf("%d\n", &a);
-    printf("%d\n", a);
+    printf("%d\n", &a); //This will print the address of a
+    printf("%d\n", a); // This will print the value of a
     
-    printf("%d\n", p); // This will print the address pointed by p
-    printf("%d\n", *p); // This will print the value of the address pointed at by p
+    printf("%d\n", p); // This will print the address pointed by p which is 
+    printf("%d\n", *p); // This will print the value of the address pointed at by p which is a
     
-    printf("%d\n", n); // Thi
-    printf("%d", *n);
+    printf("%d\n", n); // This will print the same address as pointed by P
+    printf("%d", *n); // This will print the same value as the address pointed at by p
 
     return 0;
 }
