@@ -32,7 +32,7 @@ int main() {
     //unnecessary statement by the coder
     printf("\nbruh");
 
-    //always remember to free the dynamically allocated array to avoid a crash
+    //!!!!!!!always remember to free the dynamically allocated array to avoid a crash!!!!!!!!
     free(omg);
 
     return 0;
