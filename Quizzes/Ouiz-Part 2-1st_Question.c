@@ -1,3 +1,11 @@
+/*
+    1. Write a function 
+            int *filterEven(int *nums, int size, int *newSize)
+        that returns a new dynamically allocated array containing 
+        all the even values and updates newSize of the number of 
+        even.
+*/
+
 #include <stdio.h>  
 #include <stdlib.h> 
 
