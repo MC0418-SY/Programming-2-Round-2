@@ -4,7 +4,9 @@
 void display(int arr[], int n);
 
 int main() {
+    //set the size of the array first
     int size = 5;
+    //initialize the array using malloc
     int *arr = malloc(sizeof(int) * size);
     arr[0] = 10;
     arr[1] = 20;
