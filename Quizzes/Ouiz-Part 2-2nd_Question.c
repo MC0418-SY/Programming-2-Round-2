@@ -5,6 +5,11 @@
       containing all the even values. This time no size, 
       the array is appended with a sentinel (-1).
 
+      In C programming, a sentinel value is a special 
+      value used to indicate the end of a sequence of data. 
+      It acts as a "flag" or "dummy value" that signals 
+      a termination condition. 
+      
       For example,
         arr --> | 1 | 2 | 3 | 4 | 5 | -1 |
         Index     0   1   2   3   4    5
