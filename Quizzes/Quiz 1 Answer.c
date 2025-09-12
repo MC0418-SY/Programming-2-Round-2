@@ -6,9 +6,6 @@
         even.
 */
 
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
