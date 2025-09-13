@@ -8,6 +8,9 @@ int main() {
     int size = 5;
     //initialize the array using malloc
     int *arr = malloc(sizeof(int) * size);
+//Individually input the elements of an array
+//Don't do arr[] = {10,20, 30,40,50} because that is for a static array
+//This one is a dynamically allocated one 
     arr[0] = 10;
     arr[1] = 20;
     arr[2] = 30;
