@@ -29,14 +29,29 @@
 //Function prototype
 filterEven();
 
+void filterEven();
 
 int main() {
     
     //initialize the array
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
+   
 
+    
+
+  
     
   
     
     return 0;
+}
+
+
+
+filterEven(){
+   int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
+  
+  
+  while
+
+
 }
