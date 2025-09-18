@@ -27,14 +27,13 @@
 #include <stdlib.h> 
 
 //Function prototype
-filterEven();
 
 void filterEven();
 
 int main() {
     
     //initialize the array
-   
+   filterEven();
 
     
 
@@ -47,11 +46,38 @@ int main() {
 
 
 
-filterEven(){
+void filterEven(){
    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
-  
-  
-  while
 
+    int *newSize;
+   int evenCount = 0;
+  int i = 0;
+  int index = 0;
+  
+  while(*arr != -1){
+    if (arr[i] % 2 == 0){
+      evenCount++;
+    } 
+    i++;
+  }
+
+  
+
+  *newSize = evenCount;
+  
+  int *newArr = (int*)malloc(evenCount * sizeof(int));
+
+
+  while(*arr != -1){
+    if (arr[i] % 2 == 0){
+        newArr[index++] = arr[i];
+    }
+    i++;
+  
+  
+  
+  }
+  
+  newArr[index + 1] = -1;
 
 }
