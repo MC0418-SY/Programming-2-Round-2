@@ -23,12 +23,18 @@
       In this example, the array is empty.
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  
+#include <stdlib.h> 
 
-int main(){
+//Function prototype
+filterEven();
 
 
-  
-  return 0;
+int main() {
+    
+    //initialize the array
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    
+    return 0;
 }
