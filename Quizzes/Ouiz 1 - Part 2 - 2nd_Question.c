@@ -23,68 +23,66 @@
       In this example, the array is empty.
 */
 
-#include <stdio.h>  
-#include <stdlib.h> 
-
-//Function prototype
+#include <stdio.h>
+#include <stdlib.h>
 
 void filterEven();
 
 int main() {
-    
-    //initialize the array
-   filterEven();
 
     return 0;
 }
 
 
-
 void filterEven(){
-   int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
     int size = sizeof(arr)/sizeof(arr[0]);
-  
-    int *newSize;
-   int evenCount = 0;
-  int i = 0;
-  int index = 0;
-  
- while(*arr != -1){
-      
-    if (arr[i] = -1){
-        break;
+    int evenCount = 0;
+    int index = 0;
+
+    // Count even numbers until sentinel
+    for(int i = 0; i < size; i++) {
+        if (arr[i] == -1) break;
+        if (arr[i] % 2 == 0) evenCount++;
     }
-      
-    if (arr[i] % 2 == 0){
-      evenCount++;
-    } 
-    
-    printf("%d ", i);
-    i++;
-  }
 
-  *newSize = evenCount;
-  
-  int *newArr = (int*)malloc(evenCount * sizeof(int));
-
-
-  while(*arr != -1){
-    if (arr[i] % 2 == 0){
-        newArr[index++] = arr[i];
+    // Allocate space for evens + sentinel
+    int *newArr = (int*)malloc((evenCount + 1) * sizeof(int));
+    if (newArr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
     }
-    i++;
-  }
-  
-  newArr[index + 1] = -1;
 
-printf("The even numbers are:  ");
+    // Copy even numbers
+    for(int i = 0; i < size; i++) {
+        if (arr[i] == -1) break;
+        if (arr[i] % 2 == 0) {
+            newArr[index++] = arr[i];
+        }
+    }
 
-  while(*arr != -1){
-    printf("%d  ", arr[i]);
-    i++;
-  }
+    // Add sentinel at correct position
+    newArr[index] = -1;
 
-  
-free(newArr);
-  
+    // Print results
+    printf("Filtered array: ");
+    for (int i = 0; newArr[i] != -1; i++) {
+        printf("%d ", newArr[i]);
+    }
+    printf("-1\n");
+
+    free(newArr);
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
