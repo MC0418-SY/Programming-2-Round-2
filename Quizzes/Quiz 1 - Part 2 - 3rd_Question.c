@@ -7,17 +7,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void filterEven();
+int filterEven();
 void display(int *arr);
 
 int main() {
 
     // filterEven();
-    display(filterEven());
+    int *filteredArray = filterEven();
+    display(filteredArray);
+    free(filteredArray);
     return 0;
 }
 
-void filterEven(){
+int filterEven(){
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
     int size = sizeof(arr)/sizeof(arr[0]);
     int evenCount = 0;
@@ -42,9 +44,8 @@ void filterEven(){
 
     // Add sentinel at correct position
     newArr[index] = -1;
-    
 
-    free(newArr);
+    return newArr;
 
 }
 
