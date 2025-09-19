@@ -30,9 +30,9 @@ void filterEven();
 
 int main() {
 
+    filterEven();
     return 0;
 }
-
 
 void filterEven(){
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
@@ -48,10 +48,6 @@ void filterEven(){
 
     // Allocate space for evens + sentinel
     int *newArr = (int*)malloc((evenCount + 1) * sizeof(int));
-    if (newArr == NULL) {
-        printf("Memory allocation failed\n");
-        return 1;
-    }
 
     // Copy even numbers
     for(int i = 0; i < size; i++) {
@@ -67,14 +63,16 @@ void filterEven(){
     // Print results
     printf("Filtered array: ");
     for (int i = 0; newArr[i] != -1; i++) {
-        printf("%d ", newArr[i]);
+        printf("%d", newArr[i]);
+        if(i < index - 1) {
+            printf(", ");
+        }
     }
-    printf("-1\n");
+    
 
     free(newArr);
 
 }
-
 
 
 
