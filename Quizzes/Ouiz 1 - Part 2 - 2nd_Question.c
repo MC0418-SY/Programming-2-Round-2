@@ -35,12 +35,6 @@ int main() {
     //initialize the array
    filterEven();
 
-    
-
-  
-    
-  
-    
     return 0;
 }
 
@@ -48,20 +42,26 @@ int main() {
 
 void filterEven(){
    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
-
+    int size = sizeof(arr)/sizeof(arr[0]);
+  
     int *newSize;
    int evenCount = 0;
   int i = 0;
   int index = 0;
   
-  while(*arr != -1){
+ while(*arr != -1){
+      
+    if (arr[i] = -1){
+        break;
+    }
+      
     if (arr[i] % 2 == 0){
       evenCount++;
     } 
+    
+    printf("%d ", i);
     i++;
   }
-
-  
 
   *newSize = evenCount;
   
@@ -73,11 +73,18 @@ void filterEven(){
         newArr[index++] = arr[i];
     }
     i++;
-  
-  
-  
   }
   
   newArr[index + 1] = -1;
 
+printf("The even numbers are:  ");
+
+  while(*arr != -1){
+    printf("%d  ", arr[i]);
+    i++;
+  }
+
+  
+free(newArr);
+  
 }
