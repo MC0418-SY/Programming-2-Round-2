@@ -7,19 +7,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int filterEven();
+int* filterEven();
 void display(int *arr);
 
 int main() {
 
     // filterEven();
     int *filteredArray = filterEven();
+    
+    printf("Even Numbers: ");
     display(filteredArray);
     free(filteredArray);
     return 0;
 }
 
-int filterEven(){
+int* filterEven(){
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
     int size = sizeof(arr)/sizeof(arr[0]);
     int evenCount = 0;
@@ -51,12 +53,14 @@ int filterEven(){
 
 
 
-void displayArray(int *arr) {
+void display(int *arr) {
     int i = 0;
     while (arr[i] != -1) {
-        printf("%d ", arr[i]);
+        if(arr[i + 1] ==  -1) {
+            printf("%d ", arr[i]);
+            break;
+        }
+        printf("%d, ", arr[i]);
         i++;
     }
-    printf("-1\n");
-
 }
