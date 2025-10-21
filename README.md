@@ -4,4 +4,4 @@ This is a GitHub repository for activities in the 2nd Round of Programming 2 giv
 To visualize your code, you may use this site:<br>
 https://pythontutor.com/render.html#mode=display
 
-**<span style="color:red;">NOTE:</span> It may not exceute the code if it's too long.**
+**⚠️NOTE: It may not exceute the code if it's too long.**
