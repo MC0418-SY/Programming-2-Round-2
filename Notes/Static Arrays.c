@@ -19,7 +19,7 @@ int main(){
     
     int *newArr = (int*)malloc(sizeof(int) * size);
     
-    //This is you set the elements in a DYNAMIC array
+    //This is how you set the elements in a DYNAMIC array
     arr[0] = 10;
     arr[1] = 20;
     arr[2] = 30;
