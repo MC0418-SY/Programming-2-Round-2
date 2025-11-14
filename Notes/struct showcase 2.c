@@ -3,8 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#define MAX 50
-
 typedef struct {
     int x;
     int y;
