@@ -31,33 +31,17 @@ bool isSquare(Point p1, Point p2);
 int main(){
     Point p1, p2, p3, p4, p5, p6;
     
-    p1 = newPoint(5, -7);
-    p2 = newPoint(0, 0);
-    p3 = newPoint(-2, -3);
-    p4 = newPoint(-2, 10);
-    p5 = newPoint(5, 5);
-    p5 = newPoint(5, 5);
-    
+    p1 = newPoint(-1, 1);
+    p2 = newPoint(2, -2);
+
     displayPoint(p1);
     displayPoint(p2);
-    displayPoint(p3);
-    displayPoint(p4);
-    displayPoint(p5);
-    
-    int pos2 = getPosition(p2);
-    printf("The point is at Quadrant %d.\n", pos2);
-    
-    int pos5 = getPosition(p5);
-    printf("The point is at Quadrant %d.\n", pos5);
-    
-    int pos4 = getPosition(p4);
-    printf("The point is at Quadrant %d.\n", pos4);
-    
-    int pos3 = getPosition(p3);
-    printf("The point is at Quadrant %d.\n", pos3);
     
     int pos1 = getPosition(p1);
     printf("The point is at Quadrant %d.\n", pos1);
+    
+    int pos2 = getPosition(p2);
+    printf("The point is at Quadrant %d.\n", pos2);
     
     if (isSquare(p1, p2) == true){
         printf("It is a square.\n");
@@ -67,12 +51,6 @@ int main(){
     
     double distance1 = getDistance(p1,p2);
     printf("Distance: %.2lf km\n", distance1);
-    
-    double distance2 = getDistance(p3,p4);
-    printf("Distance: %.2lf km\n", distance2);
-    
-    // double distance3 = getDistance(p1,p2);
-    // printf("Distance: %.2lf km", distance3);
     
     return 0;
 }
@@ -113,7 +91,7 @@ double getDistance(Point p1, Point p2){
     double a, b, c;
     
     a = abs(p2.y - p1.y);
-    b = abs(p2.x - p1.y);
+    b = abs(p2.x - p1.x);
     
     c = sqrt((a * a) + (b * b));
     
@@ -121,62 +99,20 @@ double getDistance(Point p1, Point p2){
 }
 
 
-bool isSquare(Point p1, Point p2){
+bool isSquare(Point p1, Point p2) {
+    // To do code logic
     double a, b;
     
     a = abs(p2.y - p1.y);
     b = abs(p2.x - p1.x);
     
-    if ((a * a) == (b * b)){
-        return true;
+    if (a != b){
+        return false;
     }
-    
-    return false;
+
+
+    return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
