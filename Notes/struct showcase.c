@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX 50
 
@@ -19,9 +20,11 @@ int main(){
     p1 = createPerson("Maria", 'f', 18);
     
     strcpy(p2.name, "Charles");
-    newPerson.sex = 'm';
-    newPerson.age = 20;
+    p2.sex = 'm';
+    p2.age = 20;
     
+    displayPerson(p1);
+    displayPerson(p2);
     
     return 0;
 }
@@ -37,5 +40,5 @@ Person createPerson (char name[], char sex, int age){
 void displayPerson(Person p){
     printf("Name: %s\n", p.name);
     printf("Sex: %s\n", toupper(p.sex) == 'M' ? "Male": "Female");
-    printf("Age: %d\n", p.age);
+    printf("Age: %d\n\n", p.age);
 }
