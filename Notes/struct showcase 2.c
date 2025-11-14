@@ -15,16 +15,15 @@ void displayPoint(Point p);
 // (x, y) -> (5, 7);
 
 int main(){
-    Point p1, p2;
+    Point p1, p2, p3;
     
     p1 = newPoint(5, -7);
-    
-    
-    p2.x = 15;
-    p2.y = 30;
+    p2 = newPoint(0, 0);
+    p3 = newPoint(-2, -3);
     
     displayPoint(p1);
     displayPoint(p2);
+    displayPoint(p3);
     
     return 0;
 }
