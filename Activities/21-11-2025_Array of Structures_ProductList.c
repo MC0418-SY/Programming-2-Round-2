@@ -37,6 +37,7 @@ int main(){
     
     addProduct(&list, createProduct(1, "Milk", 550.50, 50));
     addProduct(&list, createProduct(2, "Crackers", 25.50, 80));
+    addProduct(&list, createProduct(3, "Meat", 10.0, 10));
 
     while (1) {
         printf("MENU\n");
@@ -51,14 +52,17 @@ int main(){
         }
 
         if (choice == 1) {
-            printf("\nMANAGE MENU:\n");
+            printf("\nMENU:MANAGE\n");
             printf("[1] Add Product\n");
             printf("[2] Restock Product\n");
             printf("[3] Display Products\n");
             printf("Enter choice (0 to exit): ");
             scanf("%d", &manageChoice);
 
-            if (manageChoice == 0) continue;
+            if (manageChoice == 0){
+                printf("\n");
+                continue;
+            } 
 
             switch (manageChoice) {
                 case 1:
@@ -101,6 +105,7 @@ int main(){
         }
 
         if (choice == 2) {
+            printf("\nMENU:SELL\n");
             displayProducts(&list);
             printf("\n");
             printf("Enter product ID: ");
@@ -123,11 +128,11 @@ void initProductList(ProductList *list){
 }
 
 void displayProduct(Product p){
-    printf("%-10d | %-25s | %-15.2f | %-10d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
+    printf("%-10d | %-15s | ₱ %-15.2f | %-10d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
 }
 
 void displayProducts(ProductList *list){
-    printf("%-10s | %-25s | %-15s | %-10s\n", "ID", "Name", "Price", "Quantity");
+    printf("%-10s | %-15s |   %-15s | %-10s\n", "ID", "Name", "Price", "Quantity");
     for(int i = 0; i < list->count; ++i){
         displayProduct(list->products[i]);
     }
