@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+
 #define MAX 10
 
 typedef struct {
@@ -81,7 +82,7 @@ int main(){
                             Product p = createProduct(id, name, price, qty);
                     
                             if(addProduct(&list, p))
-                                printf("Product added!\n\n");
+                                printf("Product added!\n");
                             else
                                 printf("List full!\n");
                             break;
@@ -92,7 +93,7 @@ int main(){
                             scanf("%d", &qty);
         
                             if (restock(&list, id, qty))
-                                printf("Restocked!\n\n");
+                                printf("Restocked!\n");
                             else
                                 printf("Product not found!\n");
                             break;
@@ -108,11 +109,12 @@ int main(){
                 
                 break;
             case 2:
-                printf("\nMenu: Sell\n");
+                printf("\n\nMenu: Sell\n");
                 do {
                     displayProducts(&list);
                 
-                    printf("\n");
+                    printf("Enter your choice (0 - to EXIT): ");
+                    scanf("%d", &choiceMenu3);
                     printf("Enter product ID: ");
                     scanf("%d", &id);
                     printf("Enter quantity to sell: ");
@@ -128,7 +130,7 @@ int main(){
                 break;
             
             default:
-                printf("Invalid Input.\n\n");
+                printf("Invalid Input\n\n");
         }
     } while(choiceMenu1 != 0);
     
