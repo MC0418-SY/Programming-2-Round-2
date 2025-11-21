@@ -28,16 +28,87 @@ void displayProducts(ProductList *list);
 
 
 int main(){
-    Product p1;
     ProductList list;
-    
-    
-    p1 = createProduct(1, "Milk", 10.50, 50);
-    
-    
-    addProduct(&list, p1);
-    displayProducts(&list);
-    
+    initProductList(&list);
+
+    int choice, manageChoice, id, qty;
+    char name[20];
+    float price;
+
+    while (1) {
+        printf("\nMENU\n");
+        printf("[1] Manage\n");
+        printf("[2] Sell\n");
+        printf("Enter choice (0 to exit): ");
+        scanf("%d", &choice);
+
+        if (choice == 0) {
+            printf("Danke schön!\n");
+            break;
+        }
+
+        if (choice == 1) {
+            printf("\nMANAGE MENU:\n");
+            printf("[1] Add Product\n");
+            printf("[2] Restock Product\n");
+            printf("[3] Display Products\n");
+            printf("Enter choice (0 to exit): ");
+            scanf("%d", &manageChoice);
+
+            if (manageChoice == 0) continue;
+
+            switch (manageChoice) {
+                case 1:
+                    printf("Enter product ID: ");
+                    scanf("%d", &id);
+                    printf("Enter product name: ");
+                    scanf("%s", name);
+                    printf("Enter product price: ");
+                    scanf("%f", &price);
+                    printf("Enter quantity: ");
+                    scanf("%d", &qty);
+
+                    Product p = createProduct(id, name, price, qty);
+                    if(addProduct(&list, p))
+                        printf("Product added!\n");
+                    else
+                        printf("List full!\n");
+                    break;
+
+                case 2:
+                    printf("Enter product ID: ");
+                    scanf("%d", &id);
+                    printf("Enter quantity to add: ");
+                    scanf("%d", &qty);
+
+                    if (restock(&list, id, qty))
+                        printf("Restocked!\n");
+                    else
+                        printf("Product not found!\n");
+                    break;
+
+                case 3:
+                    displayProducts(&list);
+                    break;
+
+                default:
+                    printf("Invalid choice.\n");
+            }
+        }
+
+        if (choice == 2) {
+            printf("Enter product ID: ");
+            scanf("%d", &id);
+            printf("Enter quantity to sell: ");
+            scanf("%d", &qty);
+
+            if (sell(&list, id, qty))
+                printf("Sold!\n");
+            else
+                printf("Not enough stock or product not found!\n");
+        }
+    }
+
     return 0;
 }
 
@@ -82,7 +153,7 @@ bool restock(ProductList *list, int id, int qty){
 
     for(int i = 0; i < list->count; ++i){
         if(id == list->products[i].prodID){
-            list->products[i].ProdQty + qty;
+            list->products[i].ProdQty += qty;
             break;
         }
     }
@@ -90,23 +161,15 @@ bool restock(ProductList *list, int id, int qty){
 }
 
 bool sell(ProductList *list, int id, int qty){
-    if(list->count > MAX){
-        return false;
-    }
-    
-    for(int i = 0; i < list->count; ++i){
-        if(id == list->products[i].prodID){
-            if(list->products[i].ProdQty - qty < 0){
+    for(int i = 0; i < list->count; i++){
+        if(list->products[i].prodID == id){
+            if(list->products[i].ProdQty < qty)
                 return false;
-            } else {
-                list->products[i].ProdQty - qty;
-                break; 
-                return true;
-            }
-            
+            list->products[i].ProdQty -= qty;
+            return true;
         }
     }
-    
-    
+    return false;
 }
+
 
