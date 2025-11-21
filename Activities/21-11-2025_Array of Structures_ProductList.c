@@ -29,6 +29,7 @@ void displayProducts(ProductList *list);
 //Additional Functions to make
 // deleteProduct()
 // updatePrice()
+// InsertAt
 
 
 int main(){
