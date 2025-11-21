@@ -37,7 +37,7 @@ int main(){
     
     addProduct(&list, createProduct(1, "Milk", 550.50, 50));
     addProduct(&list, createProduct(2, "Crackers", 25.50, 80));
-    addProduct(&list, createProduct(3, "Meat", 10.0, 10));
+    addProduct(&list, createProduct(3, "Beef", 10.0, 10));
 
     while (1) {
         printf("MENU\n");
