@@ -34,9 +34,12 @@ int main(){
     int choice, manageChoice, id, qty;
     char name[20];
     float price;
+    
+    addProduct(&list, createProduct(1, "Milk", 550.50, 50));
+    addProduct(&list, createProduct(2, "Crackers", 25.50, 80));
 
     while (1) {
-        printf("\nMENU\n");
+        printf("MENU\n");
         printf("[1] Manage\n");
         printf("[2] Sell\n");
         printf("Enter choice (0 to exit): ");
@@ -70,9 +73,9 @@ int main(){
 
                     Product p = createProduct(id, name, price, qty);
                     if(addProduct(&list, p))
-                        printf("Product added!\n");
+                        printf("Product added!\n\n");
                     else
-                        printf("List full!\n");
+                        printf("List full!\n\n");
                     break;
 
                 case 2:
@@ -89,6 +92,7 @@ int main(){
 
                 case 3:
                     displayProducts(&list);
+                    printf("\n");
                     break;
 
                 default:
@@ -103,9 +107,9 @@ int main(){
             scanf("%d", &qty);
 
             if (sell(&list, id, qty))
-                printf("Sold!\n");
+                printf("Sold!\n\n");
             else
-                printf("Not enough stock or product not found!\n");
+                printf("Not enough stock or product not found!\n\n");
         }
     }
 
@@ -117,11 +121,11 @@ void initProductList(ProductList *list){
 }
 
 void displayProduct(Product p){
-    printf("%d\t%s\t%.2f\t%d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
+    printf("%d\t%s\t\t%.2f\t\t%d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
 }
 
 void displayProducts(ProductList *list){
-    printf("ID\tName\tPrice\tQuantity\n");
+    printf("ID\tName\t\tPrice\t\tQuantity\n");
     for(int i = 0; i < list->count; ++i){
         displayProduct(list->products[i]);
     }
