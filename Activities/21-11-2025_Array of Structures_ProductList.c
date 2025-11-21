@@ -89,7 +89,7 @@ int main(){
                     scanf("%d", &qty);
 
                     if (restock(&list, id, qty))
-                        printf("Restocked!\n");
+                        printf("Restocked!\n\n");
                     else
                         printf("Product not found!\n");
                     break;
@@ -174,10 +174,12 @@ bool restock(ProductList *list, int id, int qty){
 bool sell(ProductList *list, int id, int qty){
     for(int i = 0; i < list->count; i++){
         if(list->products[i].prodID == id){
-            if(list->products[i].ProdQty < qty)
+            if(list->products[i].ProdQty < qty){
                 return false;
-            list->products[i].ProdQty -= qty;
-            return true;
+            } else {
+                list->products[i].ProdQty -= qty;
+                return true;
+            }
         }
     }
     return false;
