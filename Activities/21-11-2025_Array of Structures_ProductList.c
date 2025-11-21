@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdbool.h>
 #define MAX 10
 
 typedef struct {
     int prodID;
     char prodName[20];
-    int prodPrice;
+    float prodPrice;
     int ProdQty;
 } Product;
 
@@ -16,7 +20,7 @@ typedef struct {
 void initProductList(ProductList *list);
 //set list count to 0
 Product createProduct(int id, char name[], float price, int qty);
-bool addProduct(Product *list, Product p);
+bool addProduct(ProductList *list, Product p);
 bool restock(ProductList *list, int id, int qty);
 bool sell(ProductList *list, int id, int qty);
 void displayProduct(Product p);
@@ -24,64 +28,33 @@ void displayProducts(ProductList *list);
 
 
 int main(){
-    
-     while (1) {
-        printf("\nStudent Records Manager\n");
-        printf("1. Add Student\n");
-        printf("2. Remove Student\n");
-        printf("3. Find Student\n");
-        printf("4. Update GPA\n");
-        printf("5. Display All\n");
-        printf("6. Exit\n");
-        printf("Enter choice: ");
-        scanf("%d", &choice);
-    
-        switch(choice){
-            case 1:
-                printf("Enter the students' ID: ");
-                scanf("%d", &student.id);
-                printf("Enter the new student's name: ");
-                scanf("%s", &student.name);
-                printf("Enter the GPA: ");
-                scanf("%f", &student.gpa);
-                addStudent(&list, student);
-                printf("Student added successfully.\n");
-            case 2:
-                //deleteStudent();
-                
-            break;
-            case 3:
-                //findStudent();
-                int findId;
-                printf("Enter ID to find: ");
-                scanf("%d", &findId);
-                findStudent(&list, findId);
-                
-            break;
-            case 4:
-                //updateGPA();
-                int matchId;
-                printf("Enter ID to update GPA: ");
-                scanf("%d", &matchId);
-                printf("Enter new GPA: ");
-                scanf("%d", &newGPA);
-                updateGPA(&list, findId, newGPA);
-                printf("GPA updated for student ID %d", matchId);
-            break;
-            case 5:
-                displayStudents(&list);
-            break;
-            case 6:
-                break;
-        }
+    Product p1;
+    ProductList list;
     
     
+    p1 = createProduct(1, "Milk", 10.50, 50);
+    
+    
+    addProduct(&list, p1);
+    displayProducts(&list);
     
     return 0;
 }
 
 void initProductList(ProductList *list){
     list->count = 0;
+}
+
+void displayProduct(Product p){
+    printf("%d\t%s\t%.2f\t%d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
+}
+
+void displayProducts(ProductList *list){
+    printf("ID\tName\tPrice\tQuantity\n");
+    for(int i = 0; i < list->count; ++i){
+        displayProduct(list->products[i]);
+    }
+    
 }
 
 Product createProduct(int id, char name[], float price, int qty){
@@ -93,17 +66,47 @@ Product createProduct(int id, char name[], float price, int qty){
     return memy;
 }
 
-bool addProduct(Product *list, Product p){
-    if(list->count < MAX){
-        list->products[list->count++] = p;
+bool addProduct(ProductList *list, Product p){
+    if(list->count > MAX){
+        return false;
     }
+
+    list->products[list->count++] = p;
+    return true;
 }
 
 bool restock(ProductList *list, int id, int qty){
+    if(list->count > MAX){
+        return false;
+    }
+
+    for(int i = 0; i < list->count; ++i){
+        if(id == list->products[i].prodID){
+            list->products[i].ProdQty + qty;
+            break;
+        }
+    }
+    return true;
+}
+
+bool sell(ProductList *list, int id, int qty){
+    if(list->count > MAX){
+        return false;
+    }
     
-    
+    for(int i = 0; i < list->count; ++i){
+        if(id == list->products[i].prodID){
+            if(list->products[i].ProdQty - qty < 0){
+                return false;
+            } else {
+                list->products[i].ProdQty - qty;
+                break; 
+                return true;
+            }
+            
+        }
+    }
     
     
 }
-
 
