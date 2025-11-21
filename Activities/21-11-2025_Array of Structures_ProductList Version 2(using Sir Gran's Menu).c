@@ -57,7 +57,7 @@ int main(){
                 break;
             case 1:
                 do {
-                    printf("\n\nMenu: Manage\n");
+                    printf("\nMenu: Manage\n");
                     for(int i = 0; i < 3; ++i) {
                         printf("[%d] %s\n", i+1, option2[i]);
                     }
@@ -66,7 +66,7 @@ int main(){
                     
                     switch(choiceMenu2){
                         case 0:
-                            printf("Exit Manage Menu..\n");
+                            printf("Exiting Manage Menu..\n");
                             break;
                         case 1:
                             printf("Enter product ID: ");
@@ -98,7 +98,6 @@ int main(){
                             break;
                         case 3:
                             displayProducts(&list);
-                            printf("\n");
                             break;
                         default:
                             printf("Invalid Input\n\n");
@@ -109,7 +108,7 @@ int main(){
                 
                 break;
             case 2:
-                printf("\n\nMenu: Sell\n");
+                printf("\nMenu: Sell\n");
                 do {
                     displayProducts(&list);
                 
