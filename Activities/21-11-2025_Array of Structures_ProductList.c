@@ -116,7 +116,7 @@ int main(){
             if (sell(&list, id, qty))
                 printf("Sold!\n\n");
             else
-                printf("Too bad!\n\n");
+                printf("Insufficient Quantity. Too bad!\n\n");
         }
     }
 
