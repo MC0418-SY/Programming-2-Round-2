@@ -36,7 +36,7 @@ int main(){
     ProductList list;
     initProductList(&list);
 
-    int choice, manageChoice, id, qty;
+    int choice, manageChoice, sellChoice, id, qty;
     char name[20];
     float price;
     
@@ -112,6 +112,14 @@ int main(){
         if (choice == 2) {
             printf("\nMENU:SELL\n");
             displayProducts(&list);
+            printf("Enter choice (0 to exit): ");
+            scanf("%d", &sellChoice);
+            
+            if (sellChoice == 0){
+                printf("\n");
+                continue;
+            } 
+            
             printf("\n");
             printf("Enter product ID: ");
             scanf("%d", &id);
@@ -189,5 +197,4 @@ bool sell(ProductList *list, int id, int qty){
     }
     return false;
 }
-
 
