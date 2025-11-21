@@ -40,7 +40,7 @@ int main(){
     addProduct(&list, createProduct(3, "Beef", 10.0, 10));
 
     while (1) {
-        printf("MENU\n");
+        printf("MAIN MENU\n");
         printf("[1] Manage\n");
         printf("[2] Sell\n");
         printf("Enter choice (0 to exit): ");
