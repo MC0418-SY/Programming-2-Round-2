@@ -26,6 +26,10 @@ bool sell(ProductList *list, int id, int qty);
 void displayProduct(Product p);
 void displayProducts(ProductList *list);
 
+//Additional Functions to make
+// deleteProduct()
+// sortProduct()
+
 
 int main(){
     ProductList list;
