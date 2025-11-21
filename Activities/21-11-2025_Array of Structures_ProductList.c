@@ -101,6 +101,8 @@ int main(){
         }
 
         if (choice == 2) {
+            displayProducts(&list);
+            printf("\n");
             printf("Enter product ID: ");
             scanf("%d", &id);
             printf("Enter quantity to sell: ");
@@ -121,11 +123,11 @@ void initProductList(ProductList *list){
 }
 
 void displayProduct(Product p){
-    printf("%d\t%s\t\t%.2f\t\t%d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
+    printf("%-10d | %-25s | %-15.2f | %-10d\n", p.prodID, p.prodName, p.prodPrice, p.ProdQty);
 }
 
 void displayProducts(ProductList *list){
-    printf("ID\tName\t\tPrice\t\tQuantity\n");
+    printf("%-10s | %-25s | %-15s | %-10s\n", "ID", "Name", "Price", "Quantity");
     for(int i = 0; i < list->count; ++i){
         displayProduct(list->products[i]);
     }
