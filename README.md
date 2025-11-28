@@ -5,5 +5,5 @@ To help visualize your code, you may use this site:<br>
 https://pythontutor.com/render.html#mode=display
 **⚠️NOTE: The code visualizer has a character limit.**
 
-This might also be good:
+This might also be good:<br>
 https://www.sanfoundry.com/c-tutorials-difference-using-dot-arrow-operator-accessing-structure-members/
