@@ -32,13 +32,13 @@ bool sell(ProductList *list, int id, int qty);
 void displayProduct(Product p);
 void displayProducts(ProductList *list);
 
-ProductList getAboveOneHundred (ProductList);
-
+ProductList getAboveOneHundred (ProductList list);
+// ProductListDynamic getAboveOneHundred(ProductListDynamic list);
 
 int main(){
     int choiceMenu1, choiceMenu2, choiceMenu3, quantity;
     char option1[2][20] = {"Manage", "Sell"};
-    char option2[3][20] = {"Add Product", "Restock", "Display Products"};
+    char option2[4][100] = {"Add Product", "Restock", "Display Premium Products", "Display Products"};
     
     ProductList list;
     initProductList(&list);
@@ -48,10 +48,11 @@ int main(){
     float price;
     
     addProduct(&list, createProduct(1, "Milk", 550.50, 150));
-    addProduct(&list, createProduct(1, "Water", 150.99, 550));
-    addProduct(&list, createProduct(1, "Juice", 250.75, 350));
-    addProduct(&list, createProduct(2, "Crackers", 25.50, 80));
-    addProduct(&list, createProduct(3, "Beef", 10.0, 10));
+    addProduct(&list, createProduct(2, "Water", 150.99, 550));
+    addProduct(&list, createProduct(5, "Pork", 5.0, 10));
+    addProduct(&list, createProduct(3, "Juice", 250.75, 350));
+    addProduct(&list, createProduct(4, "Crackers", 25.50, 80));
+    addProduct(&list, createProduct(5, "Beef", 10.0, 10));
     
     do {
         printf("Main Menu\n");
@@ -68,7 +69,7 @@ int main(){
             case 1:
                 do {
                     printf("\nMenu: Manage\n");
-                    for(int i = 0; i < 3; ++i) {
+                    for(int i = 0; i < 4; ++i) {
                         printf("[%d] %s\n", i+1, option2[i]);
                     }
                     printf("Enter your choice (0 - to EXIT): ");
@@ -107,6 +108,10 @@ int main(){
                                 printf("Product not found!\n");
                             break;
                         case 3:
+                            ProductList newList = getAboveOneHundred(list);
+                            displayProducts(&newList);
+                            break;
+                        case 4:
                             displayProducts(&list);
                             break;
                         default:
@@ -206,4 +211,24 @@ bool sell(ProductList *list, int id, int qty){
     }
     return false;
 }
+
+ProductList getAboveOneHundred(ProductList list){
+    ProductList newList;
+    newList.count = 0;
+    
+    for(int i = 0; i < list.count; i++){
+        if(list.products[i].prodPrice > 100){
+            newList.products[newList.count++] = list.products[i];
+        }
+    }
+    
+    return newList;
+
+}
+
+
+
+
+
+
 
