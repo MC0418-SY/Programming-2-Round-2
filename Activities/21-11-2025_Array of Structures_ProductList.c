@@ -167,6 +167,12 @@ bool addProduct(ProductList *list, Product p){
     }
 
     list->products[list->count++] = p;
+
+    /*
+    list->products[list->count] = p;
+    list->count += 1;
+    */
+    
     return true;
 }
 
