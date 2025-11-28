@@ -22,7 +22,7 @@ Product *prods = malloc(sizeof(Product) * n);
 
 //3. POinter Arithmetic Access
 //Index Array Access
-int *ptr; //This shit points to an array of Products
+Product *ptr; //This shit points to an array of Products
 ptr[2].price;
 
 //Pointer Arithmetic Access
@@ -102,7 +102,7 @@ void freePeople(Person * people, int count){
     free(people);
 }
 
-//You can free each of the people, but according to sir Gran, "ngano ipa lisod imong kinabuhi?"
+//You can free each of the people, but according to sir Gran, "ngano ipa lisod imonng kinabuhi?"
 
 
 
