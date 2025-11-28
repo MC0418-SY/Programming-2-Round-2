@@ -101,6 +101,10 @@ void freePeople(Person * people, int count){
     free(people);
 }
 
+//You can free each of the people, but according to sir Gran, "ngano ipa lisod imonng kinabuhi?"
+
+
+
 
 
 
