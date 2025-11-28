@@ -9,6 +9,7 @@ Product *prod = malloc(sizeof(Product) * 1);
 prod->id = 1;
 prod->price = 1.5;
 
+//
 (*prod).id = 5;
 (*prod).price = 2.5;
 
@@ -22,7 +23,7 @@ Product *prods = malloc(sizeof(Product) * n);
 
 //3. POinter Arithmetic Access
 //Index Array Access
-Product *ptr; //This shit points to an array of Products
+Product *ptr; //This shit points to the first element of an array of Products
 ptr[2].price;
 
 //Pointer Arithmetic Access
@@ -102,7 +103,7 @@ void freePeople(Person * people, int count){
     free(people);
 }
 
-//You can free each of the people, but paraphrasing what sir Gran said, "ngano ipa lisod pa imong kinabuhi?"
+//You can free each of the people, but according to sir Gran, "ngano ipa lisod imonng kinabuhi?"
 
 
 
