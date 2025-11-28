@@ -18,9 +18,9 @@ typedef struct {
   int count;
 } PointListDynamic;
 
-// //return all points that are in quadrant 1
-// //They all do the same thing, but have a different implementation
-// PointList getPointsInQ1(PointList list); //Static Array
+//return all points that are in quadrant 1
+//They all do the same thing, but have a different implementation
+PointList getPointsInQ1(PointList list); //Static Array
 // PointListDynamic getPointsInQ1(PointListDynamic list); //Structured Dynamic Arrau
 // MyPoint * getPointsInQ1(MyPoint points[], int num); //Unstructured, but pass in array
 
@@ -42,7 +42,31 @@ int main(){
         printf("{%d, %d}\n", list.points[i].x, list.points[i].y);
     }
     
+    
+    
     free(list.points);
     
     return 0;
 }
+
+PointList getPointsInQ1(PointList list){
+    PointList q1; 
+    q1.count = 0;
+    
+    for(int i = 0; i < list.count; ++i){
+        if(list.points[i].x > 0 && list.points[i].y > 0) {
+            q1.points[q1.count++] = list.points[i];
+        }
+    }
+    
+    return q1;
+}
+
+
+
+
+
+
+
+
+  
