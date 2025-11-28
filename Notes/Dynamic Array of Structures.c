@@ -54,8 +54,8 @@ PointList getPointsInQ1(PointList list){
     q1.count = 0;
     
     for(int i = 0; i < list.count; ++i){
-        if(list.points[i].x > 0 && list.points[i].y > 0) {
-            q1.points[q1.count++] = list.points[i];
+        if(list.list[i].x > 0 && list.list[i].y > 0) {
+            q1.list[q1.count++] = list.list[i];
         }
     }
     
