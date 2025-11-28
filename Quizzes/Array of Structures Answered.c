@@ -98,7 +98,7 @@ Product *filterData(Product *data, int count, int *retCount){
 
 //9. The "Free" Hierarchy
 void freePeople(Person * people, int count){
-    
+    free(people);
 }
 
 
