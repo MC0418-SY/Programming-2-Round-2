@@ -244,15 +244,18 @@ void problem_3() {
     
     // Step 1: Access the first project's (index 0) first todo (index 0)
     // and set its priority to 99
-
+    personPtr->projects[0].todos[0].priority = 99;
     // Step 2: Create a pointer to the second project (index 1)
     // Use the address-of operator (&) to get the address
-
+    Project *secondProject = &(personPtr->projects[1]);
     // Step 3: Use the new pointer to access the second todo (index 1)
     // and mark it finished (set isFinished to true)
-
+    secondProject->todos[1].isFinished = true;
     // Step 4: Print to verify changes
-
+    printf("\nPerson name: %s", personPtr->name);
+    printf("First Project's First Todo: %d\n", personPtr->projects[0].todos[0].priority);
+    printf("Second Project's Second Todo: %d\n", secondProject->todos[1].isFinished);
+    
     // Predefined: DO NOT TOUCH
     // Free all allocated memory
     for (int i = 0; i < personPtr->projectCount; i++) {
@@ -267,7 +270,7 @@ void problem_3() {
 // Allocate memory for Todo, Project, and Person structures
 void problem_4() {
     // Step 1: Allocate memory for ONE Todo structure using malloc
-
+    
     // Step 2: Allocate memory for one Project structure using malloc
 
     // Step 3: Allocate memory for the todos array inside Project
