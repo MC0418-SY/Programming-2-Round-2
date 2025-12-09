@@ -11,19 +11,16 @@ int* init_array(void) {
 
 //Insert given input to dynamic array in ascending order
 void insert_sort(int *arr, int count, int value) {
-    int key, j;
-    for(int i = 1; i < count; ++i){
-        key = arr[i];
-        j = i -1;
-        
-        while(j >= 0 && arr[j] > key){
-            arr[j+1] = arr[j];
-            j = j - 1;
-        }
-        
-        arr[j+1] = key;
-        
+    int i = count - 1;
+    
+    // Shift elements greater than value to the right
+    while (i >= 0 && arr[i] > value) {
+        arr[i + 1] = arr[i];
+        i--;
     }
+    
+    // Insert the value at the correct position
+    arr[i + 1] = value;
 }
 
 //prints the current array only up to the last count
