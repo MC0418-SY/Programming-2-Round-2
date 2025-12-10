@@ -443,12 +443,15 @@ void problem_10() {
 
     // Step 1: Use strcpy() to change the todo description at
     // project index 2, todo index 0 to "Completely New Task"
+    strcpy(personPtr->projects[2].todos[0].description, "Completely New Task");
 
     // Step 2: Use strcpy() to change the todo description at
     // project index 0, todo index 1 to "Another Updated Task"
+    strcpy(personPtr->projects[0].todos[1].description, "Another Updated Task");
 
     // Step 3: Set the todo to finished at project index 2, todo index 0
     // Set isFinished to true
+    personPtr->projects[2].todos[0].isFinished = true;
 
     // Predefined: DO NOT TOUCH
     // Print all todo descriptions to verify
