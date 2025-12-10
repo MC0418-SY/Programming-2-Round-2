@@ -757,14 +757,19 @@ void displayTodo(Todo t) {
 // Pass structure by value to a function
 void problem_20() {
     // Step 1: Declare a Todo variable on the stack
-
+    Todo myTodo;
+    
     // Step 2: Initialize the todo's description to "Learn function parameters"
-
+    strcpy(myTodo.description, "Learn function parameters");
+    
     // Step 3: Initialize the todo's priority to 8
+    myTodo.priority = 8;
 
     // Step 4: Initialize the todo's isFinished to false
+    myTodo.isFinished = false;
 
     // Step 5: Call displayTodo() and pass myTodo by value
+    displayTodo(myTodo);
 }
 
 // Function that accepts a pointer to Todo and modifies it
@@ -778,18 +783,25 @@ void markTodoAsFinished(Todo *t) {
 // Pass address of structure to a function (allows modification)
 void problem_21() {
     // Step 1: Declare a Todo variable on the stack
-
+    Todo myTodo;
+    
     // Step 2: Initialize the todo's description to "Task to complete"
+    strcpy(myTodo.description, "Task to complete");
 
     // Step 3: Initialize the todo's priority to 5
+    myTodo.priority = 5;
 
     // Step 4: Initialize the todo's isFinished to false
+    myTodo.isFinished = false;
 
     // Step 5: Print before modification
+    printf("Before:\n Priority: %d\t Status: %d\t\n", myTodo.priority, myTodo.isFinished);
 
     // Step 6: Call markTodoAsFinished() and pass the address using &myTodo
+    markTodoAsFinished(&myTodo);
 
     // Step 7: Print after modification
+    printf("After:\n Priority: %d\t Status: %d\t\n", myTodo.priority, myTodo.isFinished);
 }
 
 // Function that accepts a Project pointer and displays all todos
@@ -835,7 +847,8 @@ void problem_22() {
     // Predefined: DO NOT TOUCH
 
     // Step 1: Call displayAllTodos() and pass the project pointer
-
+    displayAllTodos(project);
+    
     // Predefined: DO NOT TOUCH
     // Free allocated memory
     free(project->todos);
