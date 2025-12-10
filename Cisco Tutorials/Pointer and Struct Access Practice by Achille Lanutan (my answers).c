@@ -63,12 +63,12 @@ void problem_0a() {
     int *ptr = &num;
 
     // Step 3: Print the value of num directly
-    printf("%d", num);
+    printf("Num: %d\n", num);
 
     // Step 4: Print the value of num through the pointer using dereference
-    printf("%d", *ptr);
+    printf("*ptr: %d\n", *ptr);
     // Step 5: Print the address stored in ptr
-    printf("%p", ptr);
+    printf("ptr: %p\n", ptr);
 }
 
 // Modify a variable through a pointer
@@ -78,13 +78,13 @@ void problem_0b() {
     // Step 2: Declare a pointer to an integer and assign the address of num
     int *ptr = &num;
     // Step 3: Print the original value
-    printf("%d", num);
+    printf("Original Num: %d\n", num);
     // Step 4: Modify the value through the pointer by dereferencing
     // Set *ptr to 99
     *ptr = 99;
 
     // Step 5: Print the modified value directly through num
-    printf("%d", num);
+    printf("Modified: %d\n", num);
 }
 
 // Work with pointers to different types
@@ -94,11 +94,11 @@ void problem_0c() {
     // Step 2: Declare a pointer to float and assign the address of price
     float *ptr = &price;
     // Step 3: Print the original price through the pointer
-    printf("%.2f", *ptr);
+    printf("%.2f\n", *ptr);
     // Step 4: Modify price through the pointer - add 5.00 to it
     *ptr += 5.00;
     // Step 5: Print the updated price
-    printf("%.2f", price);
+    printf("%.2f\n", price);
 }
 
 // Double pointers (pointer to pointer)
@@ -112,9 +112,9 @@ void problem_0d() {
     // the address of ptr
     int **doubleptr = &ptr;
     // Step 4: Print the value using single dereference (*ptr)
-    printf("%d", *ptr);
+    printf("%d\n", *ptr);
     // Step 5: Print the value using double dereference (**ptrToPtr)
-    printf("%d", **doubleptr);
+    printf("%d\n", **doubleptr);
     // Step 6: Modify the value through the double pointer and set it to 200.
     **doubleptr = 200;
     // Predefined: DO NOT TOUCH
@@ -1419,11 +1419,11 @@ int main() {
     printf("Comment out (with //) the ones you're not testing.\n\n");
 
     // ===== 0a-0e: Pointer Basics (Warm-up) =====
-    // problem_0a();
-    // problem_0b();
-    // problem_0c();
-    // problem_0d();
-    // problem_0e();
+    problem_0a();
+    problem_0b();
+    problem_0c();
+    problem_0d();
+    problem_0e();
 
     // ===== 1-3: Pointer Dereferencing =====
     // problem_1();
