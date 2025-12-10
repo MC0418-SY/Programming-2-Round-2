@@ -10,7 +10,7 @@ prod->id = 1;
 prod->price = 1.5;
 
 // You can also do this.
-// The only difference is that ur dereferencing the *prod to directly access the values
+// The only difference is using pointer arithmetic to dereference *prod and access the values
 (*prod).id = 5;
 (*prod).price = 2.5;
 
