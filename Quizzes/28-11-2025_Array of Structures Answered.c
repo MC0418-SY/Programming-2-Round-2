@@ -4,7 +4,7 @@ typedef struct {
     float price;
 } Product;
 
-Product *prod = malloc(sizeof(Product) * 1);
+Product *prod = malloc(sizeof(Product));
 
 prod->id = 1;
 prod->price = 1.5;
