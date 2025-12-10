@@ -9,7 +9,8 @@ Product *prod = malloc(sizeof(Product) * 1);
 prod->id = 1;
 prod->price = 1.5;
 
-//
+// You can also do this.
+// The only difference is that ur dereferencing the *prod to directly access the values
 (*prod).id = 5;
 (*prod).price = 2.5;
 
