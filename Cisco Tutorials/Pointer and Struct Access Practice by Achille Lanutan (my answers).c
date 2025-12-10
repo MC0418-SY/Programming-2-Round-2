@@ -417,9 +417,14 @@ void problem_9() {
 
     // Step 1: Use strcpy() to change the project name at index 1
     // to "Updated Project"
-
+    strcpy(personPtr->projects[1].projectName, "Updated Project");
+    
     // Step 2: Print all project names to verify
-
+    for(int i = 0; i < personPtr->projectCount; ++i){
+        printf("Project Name[i]: %s", personPtr->projects[i].projectName);
+    }
+    
+    
     // Predefined: DO NOT TOUCH
     // Free all allocated memory
     for (int i = 0; i < personPtr->projectCount; i++) {
