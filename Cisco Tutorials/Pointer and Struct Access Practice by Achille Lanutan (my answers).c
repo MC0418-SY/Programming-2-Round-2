@@ -1085,20 +1085,31 @@ void problem_26() {
 // Realloc projects array in a person
 void problem_27() {
     // Step 1: Allocate memory for one Person
-
+    Person *myPerson = malloc(sizeof(Person));
+    
     // Step 2: Allocate memory for INITIAL_CAPACITY projects
-
+    myPerson->projects = malloc(sizeof(Project) * INITIAL_CAPACITY);
+    
     // Step 3: Set projectCapacity to INITIAL_CAPACITY
-
+    myPerson->projectCapacity = INITIAL_CAPACITY;
+    
     // Step 4: Calculate new capacity (double the current capacity)
+    int newCapacity = myPerson->projectCapacity * 2;
 
     // Step 5: Use realloc() to resize the projects array to newCapacity
     // Store the result in a temporary pointer
+    Project *tempProj = realloc(myPerson->projects, sizeof(Project) * newCapacity);
 
     // Step 6: Check if realloc succeeded (returned non-NULL)
     // If successful, update the person's projects pointer and projectCapacity
+    if(tempProj != NULL){
+        myPerson->projects = tempProj;
+        myPerson->projectCapacity = newCapacity;
+    }
 
-    // Step 7: Free allocated memory
+    // Step 7: Free allocated 
+    free(myPerson->projects);
+    free(myPerson);
 }
 
 // ===== CATEGORY 9: ADVANCED OPERATIONS =====
