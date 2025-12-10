@@ -297,10 +297,14 @@ void problem_4() {
 // Allocate memory using PersonPTR typedef
 void problem_5() {
     // Step 1: Allocate memory for a Person using PersonPTR typedef
-
+    PersonPTR myPerson = malloc(sizeof(Person));
+    
     // Step 2: Allocate memory for projects array with size as INITIAL_CAPACITY
-
+    myPerson->projects = malloc(sizeof(Project) * INITIAL_CAPACITY);
+    
     // Step 3: Free in reverse order
+    free(myPerson->projects);
+    free(myPerson);
 }
 
 // Allocate PersonPTR with nested project and todo allocation
