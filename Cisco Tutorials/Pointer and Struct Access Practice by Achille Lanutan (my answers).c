@@ -861,21 +861,27 @@ void problem_22() {
 // Function that returns a Todo structure
 Todo createTodo(const char *desc, int priority, bool finished) {
     // Step 1: Declare a Todo variable on the stack
-
+    Todo myTodo;
+    
     // Step 2: Copy the description parameter to newTodo's description field
-
+    strcpy(myTodo.description, desc);
+    
     // Step 3: Assign priority parameter to newTodo's priority field
-
+    myTodo.priority = priority;
+    
     // Step 4: Assign finished parameter to newTodo's isFinished field
-
+    myTodo.isFinished = finished;
+    
     // Step 5: Return the newTodo structure
+    return myTodo;
 }
 
 // Return a structure from a function
 void problem_23() {
     // Step 1: Call createTodo() with arguments ("Returned task", 7, true)
     // and assign the returned structure to myTodo
-
+    Todo myTodo = createTodo("Returned task", 7, true);
+    
     // Predefined: DO NOT TOUCH
     // Print the returned todo's fields to verify
     printf("\nReturned Todo Description: %s", myTodo.description);
@@ -887,6 +893,7 @@ void problem_23() {
 // Function that accepts a Project pointer and updates its name
 void renameProject(Project *proj, const char *newName) {
     // Use strcpy() to copy newName to the project's projectName field
+    strcpy(proj->projectName, newName);
 }
 
 // Predefined: DO NOT TOUCH
@@ -933,10 +940,12 @@ void problem_24() {
     // Step 1: Call renameProject() and pass the address of project at index 0
     // Use &(personPtr->projects[0]) to get the address
     // Rename it to "Updated Project A"
+    renameProject(&(personPtr->projects[0]), "Updated Project A");
 
     // Step 2: Call renameProject() and pass the address of project at index 2
     // Use &(personPtr->projects[2]) to get the address
     // Rename it to "Updated Project C"
+    renameProject(&(personPtr->projects[2]), "Updated Project C");
 
     // Predefined: DO NOT TOUCH
     printf("\n\nAfter:");
@@ -957,6 +966,7 @@ void problem_24() {
 // Function that accepts a Todo pointer and increases its priority
 void increasePriority(Todo *t, int amount) {
     // Add amount to the todo's priority field
+    t->priority += amount;
 }
 
 // Predefined: DO NOT TOUCH
@@ -1015,11 +1025,13 @@ void problem_25() {
     // project 0's second todo (index 1)
     // Use &(personPtr->projects[0].todos[1]) to get the address
     // Increase priority by 10
+    increasePriority(&(personPtr->projects[0].todos[1]), 10);
 
     // Step 2: Call increasePriority() and pass the address of
     // project 1's first todo (index 0)
     // Use &(personPtr->projects[1].todos[0]) to get the address
     // Increase priority by 5
+    increasePriority(&(personPtr->projects[1].todos[0]), 5);
 
     // Predefined: DO NOT TOUCH
     // Print after modification
@@ -1052,14 +1064,22 @@ void problem_26() {
     // Predefined: DO NOT TOUCH
 
     // Step 1: Calculate new capacity (double the current capacity)
-
+    int newCapacity = project->todoCapacity * 2;
+    
     // Step 2: Use realloc() to resize the todos array to newCapacity
     // Store the result in a temporary pointer
+    Todo *newTodos = realloc(project->todos, sizeof(Todo) * newCapacity);
 
     // Step 3: Check if realloc succeeded (returned non-NULL)
     // If successful, update the project's todos pointer and todoCapacity
+    if(newTodos != NULL){
+        project->todos = newTodos;
+        project->todoCapacity = newCapacity;
+    }
 
     // Step 4: Free allocated memory
+    free(project->todos);
+    free(project);
 }
 
 // Realloc projects array in a person
