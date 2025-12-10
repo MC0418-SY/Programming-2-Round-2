@@ -1148,16 +1148,20 @@ void problem_28() {
 
     // Step 1: Loop through the first project's todos inside `data`
     // Use a for loop with variable x from 0 to data.projects[0].todoCount
-
-    // Step 2: Check if the current todo is NOT finished
-    // If not finished, copy it to unfinishedTodos array
-
-    // Step 3: Assign the unfinished todo to
-    // unfinishedTodos[unfinishedCount]
-
-    // Step 4: Increment unfinishedCount
-
+    for(int x = 0; x < data.projects[0].todoCount; ++x){
+        // Step 2: Check if the current todo is NOT finished
+        // If not finished, copy it to unfinishedTodos array
+        if(data.projects[0].todos[x].isFinished == false){
+            // Step 3: Assign the unfinished todo to
+            // unfinishedTodos[unfinishedCount]
+            unfinishedTodos[unfinishedCount] = data.projects[0].todos[x];
+            // Step 4: Increment unfinishedCount
+            unfinishedCount++;
+        }
+    }
     // Step 5: Print the unfinishedCount (should be 4)
+    printf("Unfinished Count: %d\n", unfinishedCount);
+
 
     // Predefined: DO NOT TOUCH
     free(data.projects[0].todos);
