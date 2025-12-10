@@ -25,6 +25,7 @@ Product *prods = malloc(sizeof(Product) * n);
 //3. Pointer Arithmetic Access
 //Index Array Access
 Product *ptr; //This shit points to the first element of an array of Products
+ptr = malloc(sizeof(Product) * 5);
 ptr[2].price;
 
 //Pointer Arithmetic Access
