@@ -22,13 +22,13 @@ scanf("%d", &n);
 
 Product *prods = malloc(sizeof(Product) * n);
 
-//3. POinter Arithmetic Access
+//3. Pointer Arithmetic Access
 //Index Array Access
 Product *ptr; //This shit points to the first element of an array of Products
 ptr[2].price;
 
 //Pointer Arithmetic Access
-*(ptr + 2).price;
+(*(ptr + 2)).price;
 
 //4. Initialization
 void initializeArray(struct Product *arr, int size){
