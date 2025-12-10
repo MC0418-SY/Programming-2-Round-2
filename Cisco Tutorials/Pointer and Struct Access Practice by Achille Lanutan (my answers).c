@@ -352,15 +352,23 @@ void problem_7() {
 // Modify priority levels in nested todos
 void problem_8() {
     // Step 1: Declare a Person variable on the stack
-
+    Person person;
+    
     // Step 2: Allocate memory for one Project
-
+    person.projects = malloc(sizeof(Project));
+    
     // Step 3: Allocate memory for 3 Todos
+    person.projects->todos = malloc(sizeof(Todo) * 3);
 
     // Step 4: Loop through all 3 todos and set each todo's priority to 3
     // Use a for loop from i=0 to i<3
+    for(int i = 0; i < 3; ++i){
+        person.projects->todos[i].priority = 3;
+    }
 
     // Step 5: Free allocated memory
+    free(person.projects);
+    free(person.projects->todos);
 }
 
 // ===== CATEGORY 4: FIELD UPDATES =====
