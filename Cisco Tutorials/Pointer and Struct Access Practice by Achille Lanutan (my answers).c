@@ -298,10 +298,8 @@ void problem_4() {
 void problem_5() {
     // Step 1: Allocate memory for a Person using PersonPTR typedef
     PersonPTR myPerson = malloc(sizeof(Person));
-    
     // Step 2: Allocate memory for projects array with size as INITIAL_CAPACITY
     myPerson->projects = malloc(sizeof(Project) * INITIAL_CAPACITY);
-    
     // Step 3: Free in reverse order
     free(myPerson->projects);
     free(myPerson);
@@ -482,12 +480,16 @@ void problem_11() {
     // Predefined: DO NOT TOUCH
 
     // Step 1: Change the person's name to "Updated Charlie" using strcpy
-
+    strcpy(personPtr->name, "Updated Charlie");
+    
     // Step 2: Change project name at index 0 to "First Project Renamed"
+    strcpy(personPtr->projects[0].projectName, "First Project Renamed");
 
     // Step 3: Change todo description at project 1, todo 1 to "New Description"
+    strcpy(personPtr->projects[1].todos[1].description, "New Description");
 
     // Step 4: Change priority at project 2, todo 0 to 99
+    personPtr->projects[2].todos[0].priority = 99;
 
     // Predefined: DO NOT TOUCH
     printf("\nPerson name: %s\n", personPtr->name);
@@ -512,23 +514,28 @@ void problem_11() {
 // strcpy() to todo description
 void problem_12() {
     // Step 1: Declare a Todo variable named `myTodo` on the stack
-
+    Todo myTodo;
+    
     // Step 2: Use strcpy() to initialize description field to "Learn pointers"
+    strcpy(myTodo.description, "Learn pointers") 
 }
 
 // strcpy() to project name
 void problem_13() {
     // Step 1: Allocate memory for one Project using malloc
-
+    Project *myProject = malloc(sizeof(Project));
+    
     // Step 2: Use strcpy() to initialize projectName field to "Learning C"
-
+    strcpy(myProject->projectName, "Learning C");
+    
     // Step 3: Free allocated memory
+    free(myProject);
 }
 
 // strcpy() to person name
 void problem_14() {
     // Step 1: Allocate memory for one Person using malloc
-
+    
     // Step 2: Use strcpy() to copy "John Doe" into the name field
 
     // Step 3: Free allocated memory
