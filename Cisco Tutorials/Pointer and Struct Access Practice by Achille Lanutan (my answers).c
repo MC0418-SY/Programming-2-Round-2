@@ -318,7 +318,7 @@ void problem_6() {
     person->projects->todos = malloc(sizeof(Todo) * INITIAL_CAPACITY);
     
     // Step 4: Free from innermost to outermost
-    free(person->projects.todos);
+    free(person->projects->todos);
     free(person->projects);
     free(person);
 }
@@ -330,21 +330,21 @@ void problem_7() {
     Person person;
     
     // Step 2: Allocate memory for one Project
-    person.project = malloc(sizeof(Project));
+    person.projects = malloc(sizeof(Project));
     
     // Step 3: Allocate memory for one Todo inside the project
-    person.project->todos = malloc(sizeof(Todo));
+    person.projects->todos = malloc(sizeof(Todo));
     
     // Step 4: Access and set the first todo's isFinished field to false
     // Use array index [0]
-    person.project->todos[0].isFinished = false;
+    person.projects->todos[0].isFinished = false;
 
     // Step 5: Access and set the first todo's priority field to 2
-    person.project->todos[0].priority = 2;
+    person.projects->todos[0].priority = 2;
 
     // Step 6: Free allocated memory
-    free(person.project);
-    free(person.project->todos);
+    free(person.projects);
+    free(person.projects->todos);
 }
 
 // Modify priority levels in nested todos
@@ -517,7 +517,7 @@ void problem_12() {
     Todo myTodo;
     
     // Step 2: Use strcpy() to initialize description field to "Learn pointers"
-    strcpy(myTodo.description, "Learn pointers") 
+    strcpy(myTodo.description, "Learn pointers");
 }
 
 // strcpy() to project name
@@ -535,10 +535,13 @@ void problem_13() {
 // strcpy() to person name
 void problem_14() {
     // Step 1: Allocate memory for one Person using malloc
+    Person *myPerson = malloc(sizeof(Person));
     
     // Step 2: Use strcpy() to copy "John Doe" into the name field
+    strcpy(myPerson->name, "John Doe");
 
     // Step 3: Free allocated memory
+    free(myPerson);
 }
 
 // strcpy() to nested todo description
@@ -551,8 +554,12 @@ void problem_15() {
 
     // Step 1: Use strcpy() to copy "Complete assignment" into the
     // nested todo description at index 0
+    strcpy(person.projects->todos[0].description, "Complete assignment");
 
     // Step 2: Free allocated memory
+    free(person.projects->todos);
+    free(person.projects);
+
 }
 
 // strcpy() to nested project name
@@ -565,32 +572,44 @@ void problem_16() {
 
     // Step 1: Use strcpy() to copy "Study pointers" into
     // the first todo's description
+    strcpy(person.projects->todos[0].description, "Study pointers");
 
     // Step 2: Print the nested description variable
+    printf("\n%s", person.projects->todos[0].description);
 
     // Step 3: Free allocated memory
+    free(person.projects->todos);
+    free(person.projects);
 }
 
 // ===== CATEGORY 6: STRUCTURE ASSIGNMENT =====
 // Simple structure-to-structure assignment
 void problem_17() {
     // Step 1: Declare a Todo structure named `todo1` on the stack
-
+    Todo todo1;
+    
     // Step 2: Declare a Todo structure named `todo2` on the stack
-
+    Todo todo2;
+    
     // Step 3: Use strcpy() to set todo1's description to "Original Task"
-
+    strcpy(todo1.description, "Original Task");
+    
     // Step 4: Set todo1's isFinished field to false
+    todo1.isFinished = false;
 
     // Step 5: Set todo1's priority field to 5
+    todo1.priority = 5;
 
     // Step 6: Copy all fields from todo1 to todo2 using structure assignment
     // (=) This performs a shallow copy of all fields
+    todo1 = todo2;
 
     // Step 7: Use strcpy() to change todo2's description to "Modified Task"
+    strcpy(todo2.description, "Modified Task");
 
     // Step 8: Change todo2's priority to 10
-
+    todo2.isFinished = 10;
+    
     // Predefined: DO NOT TOUCH
     // Print both to verify they are independent copies
     printf("\nTodo1: %s, Priority: %d", todo1.description, todo1.priority);
@@ -664,7 +683,8 @@ void problem_18() {
 
     // Step 1: Assign project 0's first todo (index 0) to
     // project 2's second todo (index 1) using structure assignment (=)
-
+    personPtr->projects[2].todos[1] = personPtr->projects[0].todos[0];
+    
     // Predefined: DO NOT TOUCH
     // Print to verify the copy
     printf("\nProject 2, Todo 1 description: %s",
@@ -698,10 +718,13 @@ void problem_19() {
 
     // Step 1: Swap project 1's todo 0 with project 3's todo 1
     // Create a temporary Todo variable and assign project 1's todo 0 to it
-
+    Todo temp = personPtr->projects[1].todos[0];
+    
     // Step 2: Assign project 3's todo 1 to project 1's todo 0
+    personPtr->projects[1].todos[0] = personPtr->projects[3].todos[1];
 
     // Step 3: Assign the temp variable to project 3's todo 1
+    personPtr->projects[3].todos[1] = temp;
 
     // Predefined: DO NOT TOUCH
     printf("\n\nAfter swap:");
