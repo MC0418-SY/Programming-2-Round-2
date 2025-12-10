@@ -310,30 +310,43 @@ void problem_5() {
 // Allocate PersonPTR with nested project and todo allocation
 void problem_6() {
     // Step 1: Allocate memory for a Person using PersonPTR typedef
-
+    PersonPTR  person = malloc(sizeof(Person));
+    
     // Step 2: Allocate memory for one Project
-
+    person->projects = malloc(sizeof(Project));
+    
     // Step 3: Allocate memory for todos inside the project
     // with size as INITIAL_CAPACITY
-
+    person->projects->todos = malloc(sizeof(Todo) * INITIAL_CAPACITY);
+    
     // Step 4: Free from innermost to outermost
+    free(person->projects.todos);
+    free(person->projects);
+    free(person);
 }
 
 // ===== CATEGORY 3: FIELD ACCESS & MANIPULATION =====
 // Access nested fields - person->project->todo->description
 void problem_7() {
     // Step 1: Declare a Person variable on the stack
-
+    Person person;
+    
     // Step 2: Allocate memory for one Project
-
+    person.project = malloc(sizeof(Project));
+    
     // Step 3: Allocate memory for one Todo inside the project
-
+    person.project->todos = malloc(sizeof(Todo));
+    
     // Step 4: Access and set the first todo's isFinished field to false
     // Use array index [0]
+    person.project->todos[0].isFinished = false;
 
     // Step 5: Access and set the first todo's priority field to 2
+    person.project->todos[0].priority = 2;
 
     // Step 6: Free allocated memory
+    free(person.project);
+    free(person.project->todos);
 }
 
 // Modify priority levels in nested todos
