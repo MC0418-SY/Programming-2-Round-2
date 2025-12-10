@@ -270,18 +270,28 @@ void problem_3() {
 // Allocate memory for Todo, Project, and Person structures
 void problem_4() {
     // Step 1: Allocate memory for ONE Todo structure using malloc
+    Todo *myTodo = malloc(sizeof(Todo));
     
     // Step 2: Allocate memory for one Project structure using malloc
-
+    Project *myProject = malloc(sizeof(Project));
+    
     // Step 3: Allocate memory for the todos array inside Project
     // with size INITIAL_CAPACITY
-
+    myProject->todos = malloc(sizeof(Todo) * INITIAL_CAPACITY);
+    
     // Step 4: Allocate memory for one Person structure using malloc
-
+    Person *myPerson = malloc(sizeof(Person));
+    
     // Step 5: Allocate memory for the projects array inside Person
     // with size 3
-
+    myPerson->projects = malloc(sizeof(Project) * 3);
+    
     // Step 6: Free all allocated memory in reverse order
+    free(myPerson->projects);
+    free(myPerson);
+    free(myProject->todos);
+    free(myProject);
+    free(myTodo);
 }
 
 // Allocate memory using PersonPTR typedef
